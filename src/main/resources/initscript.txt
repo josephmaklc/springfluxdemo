@@ -1,0 +1,9 @@
+-- install postgres, so you have database at localhost:5432/postgres
+-- You may also want to get pgadmin, and run this init script to create a simple table
+
+CREATE TABLE person (
+  id SERIAL PRIMARY KEY, 
+  lastname VARCHAR (50)  NOT NULL, 
+  firstname VARCHAR (50) NOT NULL, 
+  email VARCHAR (255) 
+ );
