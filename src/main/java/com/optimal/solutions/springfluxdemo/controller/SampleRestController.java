@@ -28,9 +28,12 @@ public class SampleRestController {
 	PersonDao personDao;
 
 	@GetMapping("/person/{id}")
-    public Mono<Person> getPersonByID(@PathVariable long id) {
+    public Mono<Person> getPersonByID(@PathVariable int id) {
 
 		Mono<Person> p = personDao.findPerson(id);
+		// or
+		//Mono<Person> p = personDao.repoFind(id);
+
         return p;
     }
 
@@ -44,8 +47,15 @@ public class SampleRestController {
 	@GetMapping("/person/list")
 	public Flux<Person> listPersons() {
         //Flux<Person> list = personDao.findPersonWithLastName("Williams");
-    	Flux<Person> list = personDao.findAllPersons();
-//        list.subscribe(e-> System.out.println(e));
+    	//
+    	// or
+		//
+		//Flux<Person> list = personDao.repoCustomQuery("Williams");
+		
+		Flux<Person> list = personDao.findAllPersons();
+    	list.subscribe(e-> System.out.println(e));
         return list;
+        
+        
 	}
 }

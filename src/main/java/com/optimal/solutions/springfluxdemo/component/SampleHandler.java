@@ -3,7 +3,6 @@ package com.optimal.solutions.springfluxdemo.component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
@@ -28,7 +27,7 @@ public class SampleHandler {
 	PersonDao personDao;
 	
 	public Mono<ServerResponse> lookupPerson(ServerRequest request) {
-		long personId = Long.valueOf(request.pathVariable("id"));
+		int personId = Integer.valueOf(request.pathVariable("id"));
 		
 		Mono<Person> p = personDao.findPerson(personId);
 		
