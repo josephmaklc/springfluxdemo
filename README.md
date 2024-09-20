@@ -2,6 +2,8 @@ This is a sample Spring Webflux project, complete with Swagger
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
+<img src="img/swagger.png" width="300"/>
+
 Swagger can use traditional REST controller, or the reactive Router Function
 
 This project also has r2dbc database that works with a postgres database
